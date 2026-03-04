@@ -1,0 +1,12 @@
+title: Информация о пользователе
+href: index.md
+items:
+  - name: Обзор методов
+    href: index.md 
+  - name: Определить права на управление настройками приложений
+    href: user-admin.md
+  - name: Определить набор прав пользователя
+    href: user-access.md
+  - name: Получить базовую информацию о текущем пользователе
+    href: profile.md
+  

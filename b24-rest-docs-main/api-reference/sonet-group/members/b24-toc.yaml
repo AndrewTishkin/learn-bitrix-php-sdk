@@ -1,0 +1,17 @@
+title: Участники групп и проектов
+href: index.md
+items:
+  - name: Обзор методов
+    href: index.md
+  - name: Пригласить участника
+    href: sonet-group-user-invite.md
+  - name: Отправить запрос на участие от текущего пользователя
+    href: sonet-group-user-request.md
+  - name: Добавить участника без приглашения
+    href: sonet-group-user-add.md
+  - name: Изменить роль участников
+    href: sonet-group-user-update.md
+  - name: Получить список участников
+    href: sonet-group-user-get.md
+  - name: Удалить пользователей из группы
+    href: sonet-group-user-delete.md

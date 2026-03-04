@@ -1,0 +1,13 @@
+title: События
+href: index.md
+items: 
+  - name: Обзор событий
+    href: index.md
+  - name: При создании сделки 
+    href: on-crm-deal-add.md
+  - name: При изменении сделки 
+    href: on-crm-deal-update.md
+  - name: При удалении сделки 
+    href: on-crm-deal-delete.md
+  - name: При изменении воронки сделки
+    href: on-crm-deal-move-to-category.md

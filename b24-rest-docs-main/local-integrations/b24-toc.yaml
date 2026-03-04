@@ -1,0 +1,21 @@
+title: Локальные интеграции и кастомизация
+href: index.md
+items: 
+  - name: Обзор инструментов
+    href: index.md
+  - name: Типовые кейсы и сценарии 
+    href: use-cases.md
+  - name: Входящие и исходящие вебхуки
+    href: local-webhooks.md
+  - name: Локальные приложения
+    href: local-apps.md
+  - name: Статичное приложение
+    href: static-local-app.md
+  - name: Серверное приложение с интерфейсом
+    href: serverside-local-app-with-ui.md
+  - name: Серверное приложение без интерфейса
+    href: serverside-local-app-with-no-ui.md
+  - name: Обзор раздела для Разработчиков
+    href: developers-area.md
+  - name: Как исправить ошибку «Сайт не позволяет установить соединение» при открытии приложения
+    href: site-does-not-allow-connection.md

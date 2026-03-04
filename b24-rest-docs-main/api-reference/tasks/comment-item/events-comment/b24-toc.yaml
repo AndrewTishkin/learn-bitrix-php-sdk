@@ -1,0 +1,11 @@
+title: События
+href: index.md
+items:
+  - name: Обзор событий
+    href: index.md
+  - name: При добавлении комментария
+    href: on-task-comment-add.md
+  - name: При изменении комментария
+    href: on-task-comment-update.md
+  - name: При удалении комментария
+    href: on-task-comment-delete.md

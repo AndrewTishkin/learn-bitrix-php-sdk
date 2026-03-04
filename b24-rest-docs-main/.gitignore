@@ -1,0 +1,7 @@
+.vscode
+.idea
+**/total*
+*.php
+agents.md
+CLAUDE.md
+.claude

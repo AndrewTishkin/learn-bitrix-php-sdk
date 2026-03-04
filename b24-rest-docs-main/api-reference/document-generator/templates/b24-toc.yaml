@@ -1,0 +1,18 @@
+title: Шаблоны документов
+href: index.md
+items: 
+  - name: Обзор методов
+    href: index.md
+  - name: Загрузить шаблон
+    href: document-generator-template-add.md
+  - name: Изменить шаблон
+    href: document-generator-template-update.md
+  - name: Получить шаблон по id
+    href: document-generator-template-get.md
+  - name: Получить список шаблонов
+    href: document-generator-template-list.md
+  - name: Удалить шаблон
+    href: document-generator-template-delete.md
+  - name: Получить список полей шаблонов
+    href: document-generator-template-get-fields.md
+

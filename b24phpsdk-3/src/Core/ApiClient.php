@@ -1,0 +1,217 @@
+<?php
+
+/**
+ * This file is part of the bitrix24-php-sdk package.
+ *
+ * © Maksim Mesilov <mesilov.maxim@gmail.com>
+ *
+ * For the full copyright and license information, please view the MIT-LICENSE.txt
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+namespace Bitrix24\SDK\Core;
+
+use Bitrix24\SDK\Core\Contracts\ApiClientInterface;
+use Bitrix24\SDK\Core\Contracts\ApiVersion;
+use Bitrix24\SDK\Core\Credentials\ApplicationProfile;
+use Bitrix24\SDK\Core\Credentials\AuthToken;
+use Bitrix24\SDK\Core\Credentials\Credentials;
+use Bitrix24\SDK\Core\Credentials\WebhookUrl;
+use Bitrix24\SDK\Core\Exceptions\InvalidArgumentException;
+use Bitrix24\SDK\Core\Exceptions\InvalidGrantException;
+use Bitrix24\SDK\Core\Exceptions\PortalDomainNotFoundException;
+use Bitrix24\SDK\Core\Exceptions\TransportException;
+use Bitrix24\SDK\Core\Exceptions\WrongClientException;
+use Bitrix24\SDK\Core\Response\DTO\RenewedAuthToken;
+use Bitrix24\SDK\Infrastructure\HttpClient\RequestId\RequestIdGeneratorInterface;
+use Fig\Http\Message\StatusCodeInterface;
+use Psr\Log\LoggerInterface;
+use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
+
+class ApiClient implements ApiClientInterface
+{
+    /**
+     * @const string
+     */
+    protected const string SDK_VERSION = '3.0.0';
+
+    protected const string SDK_USER_AGENT = 'b24-php-sdk-vendor';
+
+    /**
+     * ApiClient constructor.
+     */
+    public function __construct(
+        protected Credentials $credentials,
+        protected HttpClientInterface $client,
+        protected RequestIdGeneratorInterface $requestIdGenerator,
+        protected ApiLevelErrorHandler $apiLevelErrorHandler,
+        protected EndpointUrlFormatter $urlFormatter,
+        protected LoggerInterface $logger
+    ) {
+        $this->logger->debug(
+            'ApiClient.init',
+            [
+                'httpClientType' => $this->client::class,
+            ]
+        );
+    }
+
+    /**
+     * @return array<string,string>
+     */
+    protected function getDefaultHeaders(): array
+    {
+        return [
+            'Accept' => 'application/json',
+            'Accept-Charset' => 'utf-8',
+            'User-Agent' => sprintf('%s-v-%s-php-%s', self::SDK_USER_AGENT, self::SDK_VERSION, PHP_VERSION),
+            'X-BITRIX24-PHP-SDK-PHP-VERSION' => PHP_VERSION,
+            'X-BITRIX24-PHP-SDK-VERSION' => self::SDK_VERSION,
+        ];
+    }
+
+    #[\Override]
+    public function getCredentials(): Credentials
+    {
+        return $this->credentials;
+    }
+
+    /**
+     * @throws InvalidArgumentException
+     * @throws TransportExceptionInterface
+     * @throws TransportException
+     * @throws InvalidGrantException
+     * @throws PortalDomainNotFoundException
+     * @throws WrongClientException
+     */
+    #[\Override]
+    public function getNewAuthToken(): RenewedAuthToken
+    {
+        $requestId = $this->requestIdGenerator->getRequestId();
+        $this->logger->debug('getNewAuthToken.start', [
+            'requestId' => $requestId
+        ]);
+        if (!$this->getCredentials()->getApplicationProfile() instanceof ApplicationProfile) {
+            throw new InvalidArgumentException('application profile not set');
+        }
+
+        if (!$this->getCredentials()->getAuthToken() instanceof AuthToken) {
+            throw new InvalidArgumentException('access token in credentials not set');
+        }
+
+        $method = 'GET';
+        $url = sprintf(
+            '%s/oauth/token/?%s',
+            $this->getCredentials()->getEndpoints()->getAuthServerUrl(),
+            http_build_query(
+                [
+                    'grant_type' => 'refresh_token',
+                    'client_id' => $this->getCredentials()->getApplicationProfile()->clientId,
+                    'client_secret' => $this->getCredentials()->getApplicationProfile()->clientSecret,
+                    'refresh_token' => $this->getCredentials()->getAuthToken()->refreshToken,
+                    $this->requestIdGenerator->getQueryStringParameterName() => $requestId
+                ]
+            )
+        );
+
+        $requestOptions = [
+            'headers' => array_merge(
+                $this->getDefaultHeaders(),
+                [
+                    $this->requestIdGenerator->getHeaderFieldName() => $requestId
+                ]
+            ),
+        ];
+        $response = $this->client->request($method, $url, $requestOptions);
+        $responseData = $response->toArray(false);
+        $this->logger->debug('getNewAuthToken.response', [
+            'httpStatus' => $response->getStatusCode(),
+            'responseData' => $responseData,
+            'requestId' => $requestId
+        ]);
+
+        // Handle success case
+        if ($response->getStatusCode() === StatusCodeInterface::STATUS_OK) {
+            $this->apiLevelErrorHandler->handle($responseData);
+
+            $newAuthToken = RenewedAuthToken::initFromArray($responseData);
+
+            $this->logger->debug('getNewAuthToken.finish', [
+                'requestId' => $requestId
+            ]);
+            return $newAuthToken;
+        }
+
+        // Handle error cases via ApiLevelErrorHandler
+        $this->apiLevelErrorHandler->handleOAuthError(
+            $response->getStatusCode(),
+            $responseData,
+            $url
+        );
+    }
+
+    /**
+     * @param array<mixed> $parameters
+     *
+     * @throws TransportExceptionInterface
+     * @throws InvalidArgumentException
+     */
+    #[\Override]
+    public function getResponse(string $apiMethod, array $parameters = [], ApiVersion $apiVersion = ApiVersion::v1): ResponseInterface
+    {
+        $requestId = $this->requestIdGenerator->getRequestId();
+        $this->logger->info(
+            'getResponse.start',
+            [
+                'apiMethod' => $apiMethod,
+                'domainUrl' => $this->credentials->getDomainUrl(),
+                'parameters' => $parameters,
+                'apiVersion' => $apiVersion->value,
+                'requestId' => $requestId
+            ]
+        );
+
+        if (!$this->getCredentials()->getWebhookUrl() instanceof WebhookUrl) {
+            if (!$this->getCredentials()->getAuthToken() instanceof AuthToken) {
+                throw new InvalidArgumentException('access token in credentials not found ');
+            }
+
+            $parameters['auth'] = $this->getCredentials()->getAuthToken()->accessToken;
+        }
+
+        $method = 'POST';
+        $url = $this->urlFormatter->format($apiVersion, $this->credentials, $apiMethod, $parameters, $requestId);
+        $requestOptions = [
+            'json' => $parameters,
+            'headers' => array_merge(
+                $this->getDefaultHeaders(),
+                [
+                    $this->requestIdGenerator->getHeaderFieldName() => $requestId
+                ]
+            ),
+            // disable redirects, try to catch portal change domain name event
+            'max_redirects' => 0,
+        ];
+        $this->logger->debug('getResponse.requestPayload', [
+            'method' => $method,
+            'url' => $url,
+            'requestOptions' => $requestOptions
+        ]);
+        $response = $this->client->request($method, $url, $requestOptions);
+
+        $this->logger->info(
+            'getResponse.end',
+            [
+                'apiMethod' => $apiMethod,
+                'responseInfo' => $response->getInfo(),
+                'requestId' => $requestId
+            ]
+        );
+
+        return $response;
+    }
+}

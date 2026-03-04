@@ -1,0 +1,29 @@
+title: Подготовка к публикации
+href: index.md
+items: 
+  - name: Доступ к песочнице
+    href: access-to-sandbox.md
+  - name: Как разработать приложение
+    href: index.md
+  - name: Как добавить приложение
+    href: how-to-add-app.md
+  - name: Порядок публикации решений в Маркетплейсе
+    href: publication-requirements.md
+  - name: FAQ
+    href: faq.md
+  - name: Общие требования к решениям
+    href: common-requirements.md
+  - name: Требования к телефониям
+    href: requirements-telephony.md
+  - name: Требования к готовым шаблонам сайтов
+    href: requirements-sites.md
+  - name: Требования к Умным сценариям
+    href: requirements-smart-scripts.md
+  - name: Требования к отчетам BI-Конструктора
+    href: requirements-superset.md
+  - name: Гайд для разработки BI-Отчетов
+    href: guide-bi-reports.md
+  - name: Требования к отраслевым CRM
+    href: requirements-vertical-crm.md
+  - name: Чеклист перед модерацией
+    href: checklist.md

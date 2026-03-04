@@ -1,0 +1,23 @@
+title: Регулярные сделки
+href: index.md
+items: 
+  - name: Обзор методов
+    href: index.md
+  - name: Создать новую регулярную сделку
+    href: crm-deal-recurring-add.md
+  - name: Получить список полей шаблона регулярной сделки
+    href: crm-deal-recurring-fields.md
+  - name: Создать новую сделку из шаблона
+    href: crm-deal-recurring-expose.md
+  - name: Изменить существующую настройку для шаблона регулярной сделки
+    href: crm-deal-recurring-update.md
+  - name: Получить поля настройки шаблона регулярной сделки по Id
+    href: crm-deal-recurring-get.md
+  - name: Получить список настроек шаблонов регулярных сделок
+    href: crm-deal-recurring-list.md
+  - name: Удалить существующую настройку для шаблона регулярной сделки
+    href: crm-deal-recurring-delete.md
+  - name: События
+    include:
+      path: events/b24-toc.yaml
+      mode: link

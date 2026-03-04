@@ -1,0 +1,16 @@
+title: Участники чата
+href: index.md
+items:
+  - name: Обзор методов
+    href: index.md
+  - name: Приглаcить участников в чат
+    href: im-chat-user-add.md
+  - name: Получить идентификаторы участников чата
+    href: im-chat-user-list.md
+  - name: Получить список участников
+    href: im-dialog-users-list.md
+  - name: Исключить участников из чата
+    href: im-chat-user-delete.md
+  - name: Покинуть чат
+    href: im-chat-leave.md
+

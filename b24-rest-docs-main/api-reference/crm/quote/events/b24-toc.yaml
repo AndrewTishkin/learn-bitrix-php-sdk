@@ -1,0 +1,11 @@
+title: События
+href: index.md
+items:
+  - name: Обзор событий
+    href: index.md
+  - name: При добавлении предложения
+    href: on-crm-quote-add.md
+  - name: При изменении предложения
+    href: on-crm-quote-update.md
+  - name: При удалении предложения
+    href: on-crm-quote-delete.md

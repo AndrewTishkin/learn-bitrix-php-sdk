@@ -1,0 +1,155 @@
+title: Справочник REST API
+href: index.md
+items: 
+  - name: Инструменты и сценарии
+    href: index.md 
+  - name: Типы данных и форматы параметров
+    href: data-types.md 
+  - name: Скоупы методов
+    include:
+      path: scopes/b24-toc.yaml
+      mode: link
+  - name: Виджеты
+    include:
+      path: widgets/b24-toc.yaml
+      mode: link
+  - name: REST 3.0
+    include:
+      path: rest-v3/b24-toc.yaml
+      mode: link     
+  - name: События
+    include:
+      path: events/b24-toc.yaml
+      mode: link
+  - name: Общие методы и события
+    include:
+      path: common/b24-toc.yaml
+      mode: link
+  - name: BIconnector
+    include:
+      path: biconnector/b24-toc.yaml
+      mode: link       
+  - name: CoPilot
+    include:
+      path: ai/b24-toc.yaml
+      mode: link 
+  - name: CRM
+    include:
+      path: crm/b24-toc.yaml
+      mode: link
+  - name: Бизнес-процессы и роботы
+    include:
+      path: bizproc/b24-toc.yaml
+      mode: link
+  - name: Вайб
+    include:
+      path: vibe/b24-toc.yaml
+      mode: link
+  - name: Генератор документов
+    include:
+      path: document-generator/b24-toc.yaml
+      mode: link
+  - name: Диск
+    include:
+      path: disk/b24-toc.yaml
+      mode: link
+  - name: Задачи
+    include:
+      path: tasks/b24-toc.yaml
+      mode: link
+  - name: Интернет-магазин
+    include:
+      path: sale/b24-toc.yaml
+      mode: link
+  - name: Календарь
+    include:
+      path: calendar/b24-toc.yaml
+      mode: link
+  - name: Лента новостей
+    include:
+      path: log/b24-toc.yaml
+      mode: link
+  - name: Онлайн-запись
+    include:
+      path: booking/b24-toc.yaml
+      mode: link
+  - name: Опросы, голосования
+    include:
+      path: vote/b24-toc.yaml
+      mode: link      
+  - name: Открытые линии
+    include:
+      path: imopenlines/b24-toc.yaml
+      mode: link
+  - name: Платежные системы
+    include:
+      path: pay-system/b24-toc.yaml
+      mode: link
+  - name: Подпись
+    include:
+      path: sign/b24-toc.yaml
+      mode: link
+  - name: Пользователи
+    include:
+      path: user/b24-toc.yaml
+      mode: link
+  - name: Пользовательские соглашения
+    include:
+      path: user-consent/b24-toc.yaml
+      mode: link
+  - name: Почтовые сервисы
+    include:
+      path: mailservice/b24-toc.yaml
+      mode: link
+  - name: Провайдеры сообщений, СМС-провайдеры
+    include:
+      path: messageservice/b24-toc.yaml
+      mode: link
+  - name: Рабочие группы и проекты
+    include:
+      path: sonet-group/b24-toc.yaml
+      mode: link
+  - name: Сайты и магазины
+    include:
+      path: landing/b24-toc.yaml
+      mode: link
+  - name: Структура компании
+    include:
+      path: departments/b24-toc.yaml
+      mode: link
+  - name: Телефония
+    include:
+      path: telephony/b24-toc.yaml
+      mode: link
+  - name: Торговый каталог
+    include:
+      path: catalog/b24-toc.yaml
+      mode: link
+  - name: Универсальные списки
+    include:
+      path: lists/b24-toc.yaml
+      mode: link
+  - name: Учет рабочего времени
+    include:
+      path: timeman/b24-toc.yaml
+      mode: link
+  - name: Хранилище данных
+    include:
+      path: entity/b24-toc.yaml
+      mode: link
+  - name: Чаты
+    include:
+      path: chats/b24-toc.yaml
+      mode: link
+  - name: Чат-боты
+    include:
+      path: chat-bots/b24-toc.yaml
+      mode: link
+  - name: Устаревшие методы
+    include:
+      path: outdated/b24-toc.yaml
+      mode: link
+  - name: Как работать с файлами
+    include:
+      path: files/b24-toc.yaml
+      mode: link

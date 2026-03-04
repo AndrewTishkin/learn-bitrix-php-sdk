@@ -1,0 +1,15 @@
+title: Роботы бизнес-процессов
+href: index.md
+items:
+  - name: Обзор методов
+    href: index.md
+  - name: Зарегистрировать нового робота
+    href: bizproc-robot-add.md
+  - name: Обновить поля робота
+    href: bizproc-robot-update.md
+  - name: Получить список роботов
+    href: bizproc-robot-list.md
+  - name: Удалить робота
+    href: bizproc-robot-delete.md
+  - name: Вернуть параметры действию или роботу
+    href: bizproc-event-send.md

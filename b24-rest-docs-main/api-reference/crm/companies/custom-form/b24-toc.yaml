@@ -1,0 +1,13 @@
+title: Управление карточками компаний
+href: index.md
+items:
+  - name: Обзор методов
+    href: index.md
+  - name: Получить параметры карточки
+    href: crm-company-details-configuration-get.md
+  - name: Сбросить параметры карточки
+    href: crm-company-details-configuration-reset.md
+  - name: Установить параметры индивидуальной карточки
+    href: crm-company-details-configuration-set.md
+  - name: Установить общую карточку для всех пользователей
+    href: crm-company-details-configuration-force-common-scope-for-all.md

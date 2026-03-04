@@ -1,0 +1,13 @@
+title: Клиент в листе ожидания
+href: index.md
+items: 
+  - name: Обзор методов
+    href: index.md
+  - name: Добавить контакт или компанию к записи
+    href: booking-v1-waitlist-client-set.md
+  - name: Удалить контакт или компанию из записи
+    href: booking-v1-waitlist-client-unset.md      
+  - name: Получить контакт и компанию из записи
+    href: booking-v1-waitlist-client-list.md
+                 
+

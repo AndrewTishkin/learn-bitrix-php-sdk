@@ -1,0 +1,11 @@
+title: События
+href: index.md
+items: 
+  - name: Обзор событий
+    href: index.md
+  - name: При создании контакта
+    href: on-crm-contact-add.md
+  - name: При обновлении контакта
+    href: on-crm-contact-update.md
+  - name: При удалении контакта
+    href: on-crm-contact-delete.md

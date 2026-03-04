@@ -1,0 +1,11 @@
+title: Задания бизнес-процессов
+href: index.md
+items:
+  - name: Обзор методов
+    href: index.md
+  - name: Получить список заданий
+    href: bizproc-task-list.md
+  - name: Выполнить задание бизнес-процесса
+    href: bizproc-task-complete.md
+  - name: Делегировать задание бизнес-процесса
+    href: bizproc-task-delegate.md

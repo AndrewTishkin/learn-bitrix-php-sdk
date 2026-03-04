@@ -1,0 +1,12 @@
+title: Клиент в бронировании
+href: index.md
+items: 
+  - name: Обзор методов
+    href: index.md
+  - name: Добавить контакт или компанию к брони
+    href: booking-v1-booking-client-set.md
+  - name: Удалить контакт или компанию из брони
+    href: booking-v1-booking-client-unset.md      
+  - name: Получить контакт и компанию из брони
+    href: booking-v1-booking-client-list.md
+

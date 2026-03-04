@@ -1,0 +1,42 @@
+title: Добавить данные
+href: index.md
+items: 
+  - name: Как добавить лиды и другие сущности
+    href: index.md
+  - name: Добавить лид
+    href: how-to-add-lead.md
+  - name: Добавить лид c файлами
+    href: how-to-add-lead-with-files.md
+  - name: Добавить дело в новый лид или сделку в зависимости от режима CRM
+    href: how-to-add-objects-with-crm-mode.md
+  - name: Добавить повторный лид
+    href: how-to-add-repeat-lead.md
+  - name: Добавить контакт
+    href: how-to-add-contact.md
+  - name: Добавить контакт с реквизитами
+    href: how-to-add-contact-with-requisite.md
+  - name: Добавить компанию
+    href: how-to-add-company.md
+  - name: Добавить компанию с реквизитами
+    href: how-to-add-company-with-requisite.md
+  - name: Создать поставщика в CRM
+    href: how-to-add-contractor.md
+  - name: Добавить сделку и компанию с реквизитами
+    href: how-to-add-deal-with-choice-of-requisite.md
+  - name: Добавить событие календаря для работы с клиентами
+    href: how-to-add-activity-to-contact.md
+  - name: Добавить шаблон и создать документ на его основе
+    href: how-to-generate-documents.md
+  - name: Отправить письмо клиенту от имени сотрудника
+    href: how-to-send-email.md
+  - name: Добавить комментарий в таймлайн смарт-процесса
+    href: how-to-add-comment-to-spa.md
+  - name: Создать пользовательское поле в смарт-процессе    
+    href: how-to-add-user-field-to-spa.md
+  - name: Настроить округление для пользовательского поля типа «Число»
+    href: how-to-add-precision-to-user-field.md
+  - name: Как создать новую воронку со стадиями в смарт-процессе
+    href: how-to-add-category-to-spa.md
+    
+
+    

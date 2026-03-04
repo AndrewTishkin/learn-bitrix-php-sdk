@@ -1,0 +1,13 @@
+title: Статусы типов плательщиков
+href: index.md
+items: 
+  - name: Обзор методов
+    href: index.md 
+  - name: Добавить соответствие физическому или юридическому лицу
+    href: sale-business-value-person-domain-add.md
+  - name: Получить список соответствий физическому или юридическому лицу
+    href: sale-business-value-person-domain-list.md
+  - name: Удалить соответствие физическому или юридическому лицу
+    href: sale-business-value-person-domain-delete-by-filter.md 
+  - name: Получить поля соответствия физическому или юридическому лицу
+    href: sale-business-value-person-domain-get-fields.md

@@ -1,0 +1,21 @@
+title: Редактировать данные
+href: index.md
+items: 
+  - name: Редактировать данные
+    href: index.md
+  - name: Как сделать свою карточку редактирования лида
+    href: how-to-generate-edit-form-for-lead.md
+  - name: Как сделать свою карточку редактирования контакта
+    href: how-to-make-contact-edit-card.md
+  - name: Как сделать свою карточку редактирования компании
+    href: how-to-generate-edit-form-for-company.md
+  - name: Как сделать свою карточку редактирования сделки
+    href: how-to-generate-edit-form-for-deal.md
+  - name: Как изменить или удалить номера телефонов и email
+    href: how-to-change-email-or-phone.md
+  - name: Как перенести дело между элементами одного типа
+    href: how-to-move-activity.md
+  - name: Как перенести дело из одного типа объекта в другой
+    href: how-to-move-activity-between-objects.md
+  - name: Как внести дату оплаты в поле сделки
+    href: how-to-set-paid-date-to-deal.md

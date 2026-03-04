@@ -1,0 +1,57 @@
+title: Счета (старые)
+href: index.md
+items:
+  - name: О счетах CRM
+    href: index.md
+  - name: Список методов
+    href: methods.md
+  - name: Добавить счет
+    href: crm-invoice-add.md
+  - name: Удалить счет
+    href: crm-invoice-delete.md
+  - name: Получить поля счета и входящих в него товаров
+    href: crm-invoice-fields.md
+  - name: Получить счет по идентификатору
+    href: crm-invoice-get.md
+  - name: Получить список счетов
+    href: crm-invoice-list.md
+  - name: Добавить настройки для регулярного счета
+    href: crm-invoice-recurring-add.md
+  - name: Удалить настройки для регулярного счета
+    href: crm-invoice-recurring-delete.md
+  - name: Создать новый счет из шаблона
+    href: crm-invoice-recurring-expose.md
+  - name: Получить поля настройки шаблона регулярного счета
+    href: crm-invoice-recurring-fields.md
+  - name: Получить настройки регулярного счета по идентификатору
+    href: crm-invoice-recurring-get.md
+  - name: Получить список настроек регулярных счетов по фильтру
+    href: crm-invoice-recurring-list.md
+  - name: Изменить настройки для регулярного счета
+    href: crm-invoice-recurring-update.md
+  - name: Изменить счет
+    href: crm-invoice-update.md
+  - name: Создать пользовательское поле для счетов
+    href: crm-invoice-user-field-add.md
+  - name: Удалить пользовательское поле счетов
+    href: crm-invoice-user-field-delete.md
+  - name: Получить пользовательское поле счетов по идентификатору
+    href: crm-invoice-user-field-get.md
+  - name: Получить список пользовательских полей счетов по фильтру
+    href: crm-invoice-user-field-list.md
+  - name: Изменить пользовательское поле счетов
+    href: crm-invoice-user-field-update.md
+  - name: Получить поле для способов оплаты
+    href: crm-pay-system-fields.md
+  - name: Получить список способов оплаты
+    href: crm-pay-system-list.md
+  - name: Получить поля для типов плательщиков
+    href: crm-person-type-fields.md
+  - name: Получить список типов плательщиков
+    href: crm-person-type-list.md
+  - name: Получить ссылку на счет
+    href: crm-invoice-get-external-link.md
+  - name: События 
+    include:
+      path: events-invoice/b24-toc.yaml
+      mode: link

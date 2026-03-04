@@ -1,0 +1,36 @@
+title: Роботизация бизнеса
+href: index.md
+items: 
+  - name: Обзор методов
+    href: index.md 
+  - name: Процессы
+    include:
+      path: type/b24-toc.yaml
+      mode: link
+  - name: Стадии
+    include:
+      path: stage/b24-toc.yaml
+      mode: link
+  - name: Элементы
+    include:
+      path: item/b24-toc.yaml
+      mode: link
+  - name: Задания
+    include:
+      path: task/b24-toc.yaml
+      mode: link
+  - name: Настройки видимости полей
+    include:
+      path: fields/b24-toc.yaml
+      mode: link
+  - name: Записи таймлайна
+    include:
+      path: timeline/b24-toc.yaml
+      mode: link
+  - name: Комментарии
+    include:
+      path: comment/b24-toc.yaml
+      mode: link
+
+
+

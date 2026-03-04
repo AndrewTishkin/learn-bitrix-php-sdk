@@ -1,0 +1,20 @@
+title: Перечисления
+href: index.md
+items:
+  - name: Обзор методов 
+    href: index.md
+  - name: Получить описание полей перечислений
+    href: crm-enum-fields.md
+  - name: Получить id объектов, к которым можно привязать заказ
+    href: crm-enum-get-order-owner-types.md
+  - name: Получить типы объектов CRM
+    href: crm-enum-owner-type.md
+  - name: Получить типы адресов
+    href: crm-enum-address-type.md
+  - name: Получить описание режимов работы CRM
+    href: crm-enum-settings-mode.md 
+  - name: Устаревшие методы
+    include:
+      path: outdated/b24-toc.yaml
+      mode: link       
+
