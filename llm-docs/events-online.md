@@ -186,13 +186,12 @@ $eventLog = $b24->getMainScope()->eventLog();
 use Bitrix24\SDK\Services\Main\Service\EventLogSelectBuilder;
 
 $select = (new EventLogSelectBuilder())
-    ->id()
     ->timestampX()
     ->severity()
     ->userId()
     ->description();
 
-$entry = $eventLog->get(id: 123, select: $select)->item();
+$entry = $eventLog->get(id: 123, select: $select)->eventLogItem();
 echo $entry->id;
 echo $entry->severity;
 echo $entry->description;
@@ -215,10 +214,10 @@ $result = $eventLog->list(
     select:     $select,
     filter:     $filter,
     order:      ['id' => SortOrder::Descending],
-    pagination: ['limit' => 50, 'after' => null]
+    pagination: ['limit' => 50]
 );
 
-foreach ($result->items() as $entry) {
+foreach ($result->getEventLogItems() as $entry) {
     echo $entry->id . ': ' . $entry->description . PHP_EOL;
 }
 ```
@@ -240,12 +239,12 @@ $cursor = new EventLogTailCursor(
 );
 
 $result = $eventLog->tail(
-    select: (new EventLogSelectBuilder())->allSystemFields(),
-    filter: new EventLogFilter(),
-    cursor: $cursor
+    select:             (new EventLogSelectBuilder())->allSystemFields(),
+    filter:             new EventLogFilter(),
+    eventLogTailCursor: $cursor
 );
 
-foreach ($result->items() as $entry) {
+foreach ($result->getEventLogItems() as $entry) {
     echo $entry->id . PHP_EOL;
     // Обновляем курсор после обработки
     $cursor = new EventLogTailCursor(value: $entry->id, limit: 50);
@@ -271,15 +270,17 @@ $filter = (new EventLogFilter())
 
 ### EventLogSelectBuilder — доступные поля
 
+`id` **включается автоматически** (в конструкторе), метода `id()` нет.
+
 | Метод | Поле |
 |---|---|
-| `id()` | id записи |
+| *(конструктор)* | id записи |
 | `timestampX()` | дата/время события |
 | `severity()` | уровень (INFO / SECURITY / WARNING) |
 | `auditTypeId()` | тип события (USER_LOGIN и т.д.) |
 | `moduleId()` | модуль |
 | `itemId()` | ID объекта |
-| `remoteAddr()` | IP адрес |
+| `remoteAddr()` | IP адрес (`Darsyn\IP\Version\Multi\|null`) |
 | `userAgent()` | User-Agent браузера |
 | `requestUri()` | URI запроса |
 | `siteId()` | сайт |
@@ -291,7 +292,6 @@ $filter = (new EventLogFilter())
 ```php
 // Только нужные поля
 $select = (new EventLogSelectBuilder())
-    ->id()
     ->timestampX()
     ->severity()
     ->userId()
@@ -305,3 +305,5 @@ $select = (new EventLogSelectBuilder())
     ->allSystemFields()
     ->withUserFields(['UF_MY_FIELD']);
 ```
+
+Подробная документация по всем методам, фильтрам и курсору — см. [main-eventlog.md](main-eventlog.md).
